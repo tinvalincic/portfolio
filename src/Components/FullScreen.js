@@ -3,10 +3,10 @@ import React from "react";
 const FullScreen = props => {
     return (
         <div
-            className="full-screen"
+            className={"full-screen" + (props.class ? " " + props.class : "")}
             style={{ backgroundColor: props.backgroundColor }}
         >
-            <div className="container">{props.children}</div>
+            {props.children}
         </div>
     );
 };

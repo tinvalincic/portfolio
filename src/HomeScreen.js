@@ -1,6 +1,9 @@
 import React from "react";
 import FullScreen from "./Components/FullScreen";
+import ScreenLeft from "./Components/ScreenLeft";
+import ScreenRight from "./Components/ScreenRight";
 import HomeLink from "./HomeLink";
+import Container from "./Components/Container";
 
 const HomeScreen = () => {
     const userData = [
@@ -25,26 +28,41 @@ const HomeScreen = () => {
                     rel="noopener noreferrer"
                     className="link"
                 >
-                    https://github.com/tinvalincic
+                    github profil
+                </a>
+            )
+        },
+        {
+            icon: "fab fa-linkedin",
+            content: (
+                <a
+                    href="https://www.linkedin.com/in/tin-valinčić-382545150/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="link"
+                >
+                    Linkedin profil
                 </a>
             )
         }
     ];
     return (
-        <FullScreen backgroundColor="#031627">
-            <div className="home-left">
-                <h1 className="home-name">Tin Valinčić</h1>
-                <h2 className="home-title">JavaScript developer</h2>
-            </div>
-            <div className="home-right">
-                {userData.map((data, index) => (
-                    <HomeLink
-                        key={"home-data" + index}
-                        icon={data.icon}
-                        content={data.content}
-                    />
-                ))}
-            </div>
+        <FullScreen backgroundColor="var(--dark-blue)" class="homescreen">
+            <Container>
+                <ScreenLeft>
+                    <h1 className="home-name">Tin Valinčić</h1>
+                    <h2 className="home-title">JavaScript developer</h2>
+                </ScreenLeft>
+                <ScreenRight>
+                    {userData.map((data, index) => (
+                        <HomeLink
+                            key={"home-data" + index}
+                            icon={data.icon}
+                            content={data.content}
+                        />
+                    ))}
+                </ScreenRight>
+            </Container>
         </FullScreen>
     );
 };
